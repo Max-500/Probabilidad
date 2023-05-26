@@ -1,10 +1,9 @@
-import pandas as pd
 import numpy as np
 import math
 
 # Ingresamos los datos
 datos = [782, 1333, 515, 1475, 696, 832, 1052, 700, 987, 542,
-        1296, 704, 814, 1482, 1023, 739, 643, 956, 1023, 784,]
+1296, 704, 814, 1482, 1023, 739, 643, 956, 1023, 784,]
 
 # Ordenamos los datos
 datos.sort()
@@ -23,13 +22,13 @@ A = R / K
 A = math.ceil(A)
 
 data = {
-    'Clase' : [],
-    'Limite Inferior': [],
-    'Limite Superior': [],
-    'Frecuencia': [],
-    'Marca de Clase': [],
-    'Limite Inferior Exacto': [],
-    'Limite Superior Exacto': []
+'Clase' : [],
+'Limite Inferior': [],
+'Limite Superior': [],
+'Frecuencia': [],
+'Marca de Clase': [],
+'Limite Inferior Exacto': [],
+'Limite Superior Exacto': []
 }
 
 # Inicializar variables
@@ -39,17 +38,17 @@ max_decimales = 0
 
 # Recorre la lista de números
 for n in datos:
-    if isinstance(n, float):
-        hay_decimal = True
-        decimales = len(str(n).split('.')[1])
-        if decimales > max_decimales:
-            max_decimales = decimales
-            numero_con_mas_decimales = n
+if isinstance(n, float):
+hay_decimal = True
+decimales = len(str(n).split('.')[1])
+if decimales > max_decimales:
+max_decimales = decimales
+numero_con_mas_decimales = n
 
 if hay_decimal :
-    uv = max_decimales
+uv = max_decimales
 else:
-    uv = 1
+uv = 1
 
 # Dividimos los datos en K clases y asignamos una letra a cada clase
 letras = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
