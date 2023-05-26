@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import math
+import matplotlib.pyplot as plt
+import statistics as stats
 
 # Ingresamos los datos
 datos = [782, 1333, 515, 1475, 696, 832, 1052, 700, 987, 542,
@@ -94,3 +96,31 @@ for j in range(K):
 
 df = pd.DataFrame(data)
 print(df.to_string(index=False))
+
+# Media
+media = stats.mean(datos)
+print(f"La media es: {media}")
+
+# Mediana
+mediana = stats.median(datos)
+print(f"La mediana es: {mediana}")
+
+# Moda
+try:
+    moda = stats.mode(datos)
+    print(f"La moda es: {moda}")
+except stats.StatisticsError:
+    print("No hay una única moda en los datos")
+
+# Crear una figura y un eje
+fig, ax = plt.subplots()
+
+# Crear un gráfico de barras con las clases en el eje x y las frecuencias en el eje y
+ax.bar(df['Clase'], df['Frecuencia'])
+
+# Establecer las etiquetas para los ejes
+ax.set_xlabel('Clase')
+ax.set_ylabel('Frecuencia')
+
+# Mostrar el gráfico
+plt.show()
