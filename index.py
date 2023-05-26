@@ -27,9 +27,10 @@ data = {
     'Limite Inferior': [],
     'Limite Superior': [],
     'Frecuencia': [],
-    'Marca de Clase': [],
+    'Marca De Clase': [],
     'Limite Inferior Exacto': [],
-    'Limite Superior Exacto': []
+    'Limite Superior Exacto': [],
+    'Frecuencia Acumulada': []
 }
 
 # Inicializar variables
@@ -67,12 +68,29 @@ while max(datos) > limite_superior:
     limite_inferior =limite_superior + uv
 
 for n in range(K):
+
     inferior = data['Limite Inferior'][n]
     superior = data['Limite Superior'][n]
+    marca_clase = 0
     frecuencia = 0
     for i in datos:
         if inferior <= i <= superior:
             frecuencia += 1
-            
+    data['Frecuencia'].append(frecuencia)
 
-print(data)
+    marca_clase = (inferior + superior) / 2
+    data['Marca De Clase'].append(marca_clase)
+    
+    limite_inferior_exacto = inferior - (uv/2)
+    data['Limite Inferior Exacto'].append(limite_inferior_exacto)
+
+    limite_superior_exacto = superior + (uv/2)
+    data['Limite Superior Exacto'].append(limite_superior_exacto)
+
+for j in range(K):
+    frecuencia_acumulada = 0
+    frecuencia_acumulada = data['Frecuencia'][j] + frecuencia_acumulada
+    data['Frecuencia Acumulada'].append(frecuencia_acumulada)
+
+df = pd.DataFrame(data)
+print(df.to_string(index=False))
