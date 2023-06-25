@@ -1,8 +1,8 @@
+import math
+import statistics as stats
 import pandas as pd
 import numpy as np
-import math
 import matplotlib.pyplot as plt
-import statistics as stats
 
 # Ingresamos los datos
 datos = [782, 1333, 515, 1475, 696, 832, 1052, 700, 987, 542,
